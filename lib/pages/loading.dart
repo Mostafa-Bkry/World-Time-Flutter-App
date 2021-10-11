@@ -9,14 +9,16 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-  String orderedTime = 'Loading';
+  bool loaded = false;
 
   void getTime() async {
     Time time =
         Time(location: 'Cairo', flag: 'assets/Egypt.png', url: 'Europe/London');
     await time.getTime();
-    setState(() {
-      orderedTime = time.time;
+    Navigator.of(context).pushReplacementNamed('/home', arguments: {
+      'location': time.location,
+      'flag': time.flag,
+      'time': time.time,
     });
   }
 
@@ -25,17 +27,17 @@ class _LoadingState extends State<Loading> {
     super.initState();
 
     getTime();
+    setState(() {
+      loaded = true;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
         child: Center(
-          child: Text(
-            orderedTime,
-            style: const TextStyle(fontSize: 25),
-          ),
+          child: Icon(Icons.refresh, size: 50),
         ),
       ),
     );
