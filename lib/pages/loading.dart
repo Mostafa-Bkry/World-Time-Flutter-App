@@ -18,6 +18,7 @@ class _LoadingState extends State<Loading> {
       'location': time.location,
       'flag': time.flag,
       'time': time.time,
+      'isDayTime': time.isDayTime,
     });
   }
 
@@ -31,7 +32,7 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red[800],
+      backgroundColor: Colors.blue[800],
       body: const SafeArea(
         child: Center(
           child: SpinKitDancingSquare(
