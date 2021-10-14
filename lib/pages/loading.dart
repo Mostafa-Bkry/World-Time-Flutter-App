@@ -11,15 +11,18 @@ class Loading extends StatefulWidget {
 
 class _LoadingState extends State<Loading> {
   void getTime() async {
-    Time time =
-        Time(location: 'Cairo', flag: 'assets/Egypt.png', url: 'Africa/Cairo');
+    Time time = Time(
+        location: 'Cairo', flag: 'assets/flags/egy.jpg', url: 'Africa/Cairo');
     await time.getTime();
-    Navigator.of(context).pushReplacementNamed('/home', arguments: {
-      'location': time.location,
-      'flag': time.flag,
-      'time': time.time,
-      'isDayTime': time.isDayTime,
-    });
+    Navigator.of(context).pushReplacementNamed(
+      '/home',
+      arguments: {
+        'location': time.location,
+        'flag': time.flag,
+        'time': time.time,
+        'isDayTime': time.isDayTime,
+      },
+    );
   }
 
   @override

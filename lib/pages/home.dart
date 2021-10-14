@@ -9,6 +9,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   Map data = {};
+
   @override
   Widget build(BuildContext context) {
     // print(ModalRoute.of(context)!.settings.arguments);
@@ -48,7 +49,10 @@ class _HomeState extends State<Home> {
                   ),
                   label: const Text(
                     'Edit Location',
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(
+                      fontSize: 20,
+                      shadows: [Shadow(color: Colors.white, blurRadius: 7)],
+                    ),
                   ),
                 ),
                 const SizedBox(height: 30),
