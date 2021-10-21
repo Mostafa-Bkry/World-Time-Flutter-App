@@ -33,6 +33,17 @@ class _ChooseLocationState extends State<ChooseLocation> {
         url: 'Africa/Khartoum')
   ];
 
+  void updateTime(index) async {
+    Time time = locationsData[index];
+    await time.getTime();
+    Navigator.pop(context, {
+      'location': time.location,
+      'flag': time.flag,
+      'time': time.time,
+      'isDayTime': time.isDayTime,
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +64,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
           padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 5.0),
           child: Card(
             child: ListTile(
-              onTap: () => print('clicked'),
+              onTap: () => updateTime(index),
               title: Text(
                 locationsData[index].location,
                 style: const TextStyle(

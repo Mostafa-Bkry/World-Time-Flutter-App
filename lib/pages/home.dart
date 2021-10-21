@@ -13,7 +13,9 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     // print(ModalRoute.of(context)!.settings.arguments);
-    data = ModalRoute.of(context)!.settings.arguments as Map;
+    data = data.isNotEmpty
+        ? data
+        : ModalRoute.of(context)!.settings.arguments as Map;
     // print(data['location']);
     String bgImage = data['isDayTime'] ? 'day.jpg' : 'night5.jpeg';
     Color? bgColor = data['isDayTime'] ? Colors.yellow[900] : Colors.black12;
@@ -42,7 +44,18 @@ class _HomeState extends State<Home> {
                     backgroundColor: MaterialStateProperty.all(buttonColor),
                     foregroundColor: MaterialStateProperty.all(Colors.white),
                   ),
-                  onPressed: () => Navigator.of(context).pushNamed('/location'),
+                  onPressed: () async {
+                    dynamic result =
+                        await Navigator.of(context).pushNamed('/location');
+                    setState(() {
+                      data = {
+                        'location': result['location'],
+                        'flag': result['flag'],
+                        'time': result['time'],
+                        'isDayTime': result['isDayTime']
+                      };
+                    });
+                  },
                   icon: const Icon(
                     Icons.location_on,
                     size: 35,
