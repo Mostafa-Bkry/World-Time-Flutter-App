@@ -30,7 +30,48 @@ class _ChooseLocationState extends State<ChooseLocation> {
     Time(
         location: 'Khartoum',
         flag: 'assets/flags/sudan.png',
-        url: 'Africa/Khartoum')
+        url: 'Africa/Khartoum'),
+    Time(
+        location: 'Casablanca',
+        flag: 'assets/flags/Casablanca-Morocco.jpg',
+        url: 'Africa/Casablanca'),
+    Time(
+        location: 'Costa Rica',
+        flag: 'assets/flags/Costa_Rica.jpg',
+        url: 'America/Costa_Rica'),
+    Time(
+        location: 'Colorado',
+        flag: 'assets/flags/denver-Colorado.jpg',
+        url: 'America/Denver'),
+    Time(
+        location: 'Istanbul',
+        flag: 'assets/flags/Istanbul-Turkey.jpg',
+        url: 'Europe/Istanbul'),
+    Time(
+        location: 'Nairobi',
+        flag: 'assets/flags/Keyna-Nairobi.jpg',
+        url: 'Africa/Nairobi'),
+    Time(
+        location: 'Moscow',
+        flag: 'assets/flags/Moscow-Russian.jpg',
+        url: 'Europe/Moscow'),
+    Time(
+        location: 'Oslo',
+        flag: 'assets/flags/Oslo-Norwa.jpg',
+        url: 'Europe/Oslo'),
+    Time(
+        location: 'Prague',
+        flag: 'assets/flags/Prague.jpg',
+        url: 'Europe/Prague'),
+    Time(
+        location: 'Rome',
+        flag: 'assets/flags/Rome-Italy.jpg',
+        url: 'Europe/Rome'),
+    Time(
+        location: 'Stockholm',
+        flag: 'assets/flags/Stockholm-Sweden.jpg',
+        url: 'Europe/Stockholm'),
+    Time(location: 'Tunis', flag: 'assets/flags/Tunis.jpg', url: 'Africa/Tunis')
   ];
 
   void updateTime(index) async {
@@ -59,7 +100,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
         ),
       ),
       body: ListView.builder(
-        itemCount: 6,
+        itemCount: 17,
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 5.0),
           child: Card(
